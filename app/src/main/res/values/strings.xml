@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SecondTask</string>
+    <string name="activity_main_title">Всі звернення</string>
+
+    <array name="home_activity_tab_name">
+        <item>В РОБОТІ</item>
+        <item>ВИКОНАНО</item>
+        <item>НЕ ВИКОНАНО</item>
+    </array>
+</resources>
