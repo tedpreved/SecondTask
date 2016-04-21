@@ -2,7 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="cardview_radius">10dp</dimen>
+    <dimen name="cardview_radius">8dp</dimen>
     <dimen name="cardview_width">344dp</dimen>
     <dimen name="cardview_height">126dp</dimen>
     <dimen name="cardview_left_container_width">80dp</dimen>
@@ -13,4 +13,6 @@
     <dimen name="activity_home_tab_layout_padding_sides">8dp</dimen>
     <dimen name="activity_home_title_padding_left">16dp</dimen>
     <dimen name="title_text_size">20sp</dimen>
+    <dimen name="item_in_progress_address_margin_top">8dp</dimen>
+    <dimen name="item_in_progress_tv_date_margin_top">8dp</dimen>
 </resources>
