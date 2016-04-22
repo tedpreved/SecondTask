@@ -53,7 +53,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/item_in_progress_left_container"
-            android:background="@color/color_divider"/>
+            android:background="@color/color_divider_cardview"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

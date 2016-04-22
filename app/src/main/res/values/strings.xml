@@ -7,4 +7,33 @@
         <item>ВИКОНАНО</item>
         <item>НЕ ВИКОНАНО</item>
     </array>
+
+    <string-array name="mass_menu_title">
+        <item>Всi звернення</item>
+        <item>Звернення на мапi</item>
+    </string-array>
+
+    <string name="tv_order_type">Municipal Economy</string>
+    <string name="tv_filter">In progress</string>
+    <string name="tv_label_create_date">Created</string>
+    <string name="tv_label_register_date">Registered</string>
+    <string name="tv_label_solved_date">Resolve to</string>
+    <string name="tv_label_name_responsible">Responsible</string>
+    <string name="title" translatable="false">CE-1257218</string>
+    <string name="tv_crated_date">25 Feb 2016</string>
+    <string name="tv_registered_date">26 Feb 2016</string>
+    <string name="tv_resolve_date">29 Feb 2016</string>
+    <string name="tv_responsible_name">Dnipro CEC</string>
+
+    <string name="description">Open the door (near the billboard),
+        turning the area on 18 and 19 tram at Prospekt Mira and the Donetsk highway.</string>
+    <string name="drawer_header_label_econtact">e-contract</string>
+
+    <string-array name="array_url">
+        <item>https://stv.maps.yandex.net/images/?v=3.08.0&amp;oid=1297679222_673949761_23_1430985844&amp;z=3&amp;x=3&amp;y=1</item>
+        <item>https://stv.maps.yandex.net/images/?v=3.10.1&amp;oid=1254588712_626488848_23_1371900264&amp;z=2&amp;x=4&amp;y=2</item>
+        <item>https://stv.maps.yandex.net/images/?v=3.10.1&amp;oid=1254596655_626631839_23_1371919747&amp;z=2&amp;x=8&amp;y=2</item>
+    </string-array>
+
+
 </resources>

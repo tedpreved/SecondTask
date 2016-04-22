@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:paddingLeft="@dimen/drawer_header_container_padding_left"
+    android:paddingBottom="@dimen/drawer_header_container_padding_bottom"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:textColor="@color/color_drawer_title"
+        android:textSize="@dimen/drawer_header_title_text_size"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/drawer_header_label_econtact"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

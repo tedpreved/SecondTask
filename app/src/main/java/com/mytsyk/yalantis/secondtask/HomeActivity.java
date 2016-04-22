@@ -3,8 +3,10 @@ package com.mytsyk.yalantis.secondtask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ListView;
 
 import com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton;
 
@@ -14,25 +16,46 @@ public class HomeActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private CustomFloatingActionButton fabNew;
 
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+
+    private int[] mIconMass = {R.drawable.ic_issues,
+            R.drawable.ic_map};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setUpTabs();
+        initDrawer();
     }
 
-    private void setUpTabs(){
-        mViewPager=(ViewPager)findViewById(R.id.activity_home_view_pager);
-        mTabLayout=(TabLayout)findViewById(R.id.activity_home_tab_layout);
+    private void initDrawer() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.home_activity_drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.activity_home_drawer);
 
-        SampleFragmentPagerAdapter pagerAdapter=new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-                                                                               getApplicationContext());
+
+        final String[] menuTitle = getResources().getStringArray(R.array.mass_menu_title);
+        DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(getApplicationContext(),
+                mIconMass,menuTitle);
+
+        //final View header= LayoutInflater.from(this).inflate(R.layout.drawer_header,);
+        //mDrawerList.addHeaderView(header);
+        mDrawerList.setAdapter(drawerMenuAdapter);
+    }
+
+    private void setUpTabs() {
+        mViewPager = (ViewPager) findViewById(R.id.activity_home_view_pager);
+        mTabLayout = (TabLayout) findViewById(R.id.activity_home_tab_layout);
+
+        SampleFragmentPagerAdapter pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+                getApplicationContext());
         mViewPager.setAdapter(pagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
-    public View getFab(){
-        fabNew=(CustomFloatingActionButton)findViewById(R.id.activity_home_fab);
+    public View getFab() {
+        fabNew = (CustomFloatingActionButton) findViewById(R.id.activity_home_fab);
         return fabNew;
     }
 }

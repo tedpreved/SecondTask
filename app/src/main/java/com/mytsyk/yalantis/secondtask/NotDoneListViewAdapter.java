@@ -45,7 +45,6 @@ public class NotDoneListViewAdapter extends BaseAdapter{
         } else {
             holder = (HolderNotDone) view.getTag();
         }
-        //Log.v("cardviewheight")
 
         return view;
     }

@@ -4,8 +4,21 @@
     <color name="colorPrimaryDark">#446389</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_fab">#ff9c26</color>
-    <color name="color_background">#45b3c3</color>
+    <color name="color_gradient">#45b3c3</color>
     <color name="color_tab_text_selected">#4dffffff</color>
-    <color name="color_divider">#cccccc</color>
+    <color name="color_divider_cardview">#cccccc</color>
     <color name="color_cardview_text_address">#cccccc</color>
+
+    <color name="color_shape_background">#f89900</color>
+    <color name="color_background">#ebebeb</color>
+    <color name="color_text_target">#858585</color>
+    <color name="color_text_date">#191919</color>
+    <color name="color_text_order">#191919</color>
+    <color name="color_text_white">#edf1f6</color>
+    <color name="color_divider">#c4c4c4</color>
+
+    <color name="color_drawer_title">#fafafa</color>
+
+
+
 </resources>

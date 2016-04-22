@@ -49,4 +49,64 @@
         <item name="android:textColor">@color/color_cardview_text_address</item>
     </style>
 
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="MainContainer">
+        <item name="android:paddingLeft">@dimen/padding_left_main_container</item>
+        <item name="android:paddingRight">@dimen/padding_right_main_container</item>
+        <item name="android:background">@color/color_background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="TvTextGray" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_target</item>
+        <item name="android:textSize">@dimen/text_size_gray</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_text_gray</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bot_text_gray</item>
+    </style>
+
+    <style name="TvTextBlack" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_date</item>
+        <item name="android:textSize">@dimen/text_size_black</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_text_black</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bot_text_black</item>
+    </style>
+
+    <style name="TvTextShape" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/color_text_white</item>
+        <item name="android:textSize">@dimen/text_size_shape</item>
+        <item name="android:background">@drawable/shape_in_progress</item>
+        <item name="android:paddingLeft">@dimen/padding_filter_lf_rt</item>
+        <item name="android:paddingRight">@dimen/padding_filter_lf_rt</item>
+        <item name="android:paddingTop">@dimen/padding_filter_bot_top</item>
+        <item name="android:paddingBottom">@dimen/padding_filter_bot_top</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_filter</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bot_filter</item>
+    </style>
+
+    <style name="TvNameOrder" parent="@android:style/Widget.TextView">
+        <item name="android:paddingTop">@dimen/padding_top_tv_order</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_order</item>
+        <item name="android:textSize">@dimen/text_name_order</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/color_divider</item>
+    </style>
+    
+
 </resources>
