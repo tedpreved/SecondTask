@@ -37,11 +37,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
         final String[] menuTitle = getResources().getStringArray(R.array.mass_menu_title);
-        DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(getApplicationContext(),
+        final DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(getApplicationContext(),
                 mIconMass,menuTitle);
 
-        //final View header= LayoutInflater.from(this).inflate(R.layout.drawer_header,);
-        //mDrawerList.addHeaderView(header);
         mDrawerList.setAdapter(drawerMenuAdapter);
     }
 
@@ -85,6 +83,5 @@ public class HomeActivity extends AppCompatActivity {
     public interface fabController {
         void hide();
         void show();
-
     }
 }
