@@ -50,9 +50,8 @@
                     android:layout_centerVertical="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_filter_menu"/>
-
-
             </RelativeLayout>
+
         </android.support.v7.widget.Toolbar>
 
         <android.support.design.widget.TabLayout
@@ -78,14 +77,13 @@
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_margin="16dp"
-            />
+            android:layout_margin="@dimen/activity_home_fab_margin"/>
 
     </RelativeLayout>
 
     <ListView
         android:id="@+id/activity_home_drawer"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/activity_home_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
