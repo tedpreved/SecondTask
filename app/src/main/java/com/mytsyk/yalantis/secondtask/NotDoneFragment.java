@@ -6,7 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
+
+import com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.fab.ScrollDirectionListener;
 
 
 public class NotDoneFragment extends Fragment {
@@ -21,5 +25,32 @@ public class NotDoneFragment extends Fragment {
         NotDoneListViewAdapter notDoneListViewAdapter=new NotDoneListViewAdapter(getActivity());
         lvNotDone.setAdapter(notDoneListViewAdapter);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        CustomFloatingActionButton fab=(CustomFloatingActionButton) ((HomeActivity) getActivity()).getFab();
+        fab.attachToListView(lvNotDone, new ScrollDirectionListener() {
+            @Override
+            public void onScrollDown() {
+                //Log.d("ListViewFragment", "onScrollDown()");
+            }
+
+            @Override
+            public void onScrollUp() {
+                //Log.d("ListViewFragment", "onScrollUp()");
+            }
+        }, new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                //Log.d("ListViewFragment", "onScrollStateChanged()");
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//                    Log.d("ListViewFragment", "onScroll()");
+            }
+        });
     }
 }

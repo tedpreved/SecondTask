@@ -8,6 +8,16 @@
     android:background="@drawable/bc_main"
     tools:context="com.mytsyk.yalantis.secondtask.HomeActivity">
 
+    <com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton
+        android:id="@+id/activity_home_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

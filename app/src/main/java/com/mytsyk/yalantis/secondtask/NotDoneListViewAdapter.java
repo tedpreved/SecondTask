@@ -37,7 +37,7 @@ public class NotDoneListViewAdapter extends BaseAdapter{
         View view = convertView;
         final HolderNotDone holder;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.fragment_not_done, parent, false);
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_not_done, parent, false);
             holder = new HolderNotDone();
             holder.mCardView=(CardView)view.findViewById(R.id.item_in_progress_cardview);
             //
