@@ -2,9 +2,6 @@ package com.mytsyk.yalantis.secondtask.fab;
 
 import android.widget.ScrollView;
 
-/**
- * Created by teodor on 22.04.16.
- */
 abstract class ScrollViewScrollDetector implements ObservableScrollView.OnScrollChangedListener {
     private int mLastScrollY;
     private int mScrollThreshold;
