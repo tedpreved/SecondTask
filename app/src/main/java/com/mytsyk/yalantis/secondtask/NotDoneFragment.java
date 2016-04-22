@@ -15,6 +15,7 @@ import com.mytsyk.yalantis.secondtask.fab.ScrollDirectionListener;
 
 public class NotDoneFragment extends Fragment {
     private ListView lvNotDone;
+    private CustomFloatingActionButton floatingActionButton;
 
     @Nullable
     @Override
@@ -27,30 +28,37 @@ public class NotDoneFragment extends Fragment {
         return view;
     }
 
+    public void setFabButton(CustomFloatingActionButton fabButton){
+        this.floatingActionButton = fabButton;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        CustomFloatingActionButton fab=(CustomFloatingActionButton) ((HomeActivity) getActivity()).getFab();
-        fab.attachToListView(lvNotDone, new ScrollDirectionListener() {
-            @Override
-            public void onScrollDown() {
-                //Log.d("ListViewFragment", "onScrollDown()");
-            }
-
-            @Override
-            public void onScrollUp() {
-                //Log.d("ListViewFragment", "onScrollUp()");
-            }
-        }, new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                //Log.d("ListViewFragment", "onScrollStateChanged()");
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//                    Log.d("ListViewFragment", "onScroll()");
-            }
-        });
+        floatingActionButton.attachToListView(lvNotDone, scrollDirectionListener, onScrollListener);
     }
+
+    private ScrollDirectionListener scrollDirectionListener = new ScrollDirectionListener() {
+        @Override
+        public void onScrollDown() {
+
+        }
+
+        @Override
+        public void onScrollUp() {
+
+        }
+    };
+
+    private  AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+        }
+    };
 }

@@ -36,7 +36,7 @@ import java.lang.annotation.RetentionPolicy;
         public static final int TYPE_NORMAL = 0;
         public static final int TYPE_MINI = 1;
 
-        private boolean mVisible = true;
+        public boolean mVisible = true;
 
         private final Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
 

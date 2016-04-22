@@ -10,15 +10,13 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
     private String tabTitles[];
     private Context context;
-    private Fragment[] mFragmentList={new InProgressFragment(),new InProgressFragment(),new NotDoneFragment()};
+    private Fragment[] mFragmentList;
 
-    public SampleFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public SampleFragmentPagerAdapter(FragmentManager fm, Context context, Fragment[] fragments) {
         super(fm);
         this.context = context;
-        tabTitles=context.getResources().getStringArray(R.array.home_activity_tab_name);
-        /*mFragmentList[0]=new InProgressFragment();
-        mFragmentList[1]=new InProgressFragment();
-        mFragmentList[2]=new InProgressFragment();*/
+        this.mFragmentList = fragments;
+        tabTitles = context.getResources().getStringArray(R.array.home_activity_tab_name);
     }
 
     @Override
@@ -35,4 +33,6 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return tabTitles[position];
     }
+
+
 }

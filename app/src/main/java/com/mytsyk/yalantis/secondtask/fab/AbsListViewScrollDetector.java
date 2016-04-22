@@ -4,9 +4,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.AbsListView;
 
-/**
- * Created by teodor on 22.04.16.
- */
 abstract class AbsListViewScrollDetector implements AbsListView.OnScrollListener {
     private int mLastScrollY;
     private int mPreviousFirstVisibleItem;

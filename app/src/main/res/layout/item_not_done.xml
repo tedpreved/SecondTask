@@ -24,15 +24,15 @@
 
             <ImageView
                 android:id="@+id/item_in_progress_ic_like"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="@dimen/item_in_progress_ic_like_size"
+                android:layout_height="@dimen/item_in_progress_ic_like_size"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/thumb_up"/>
 
             <TextView
                 android:id="@+id/item_in_progress_tv_like"
                 style="@style/TexViewCardViewLike"
-                android:layout_width="30dp"
+                android:layout_width="@dimen/item_in_progress_tv_like_width"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_toRightOf="@id/item_in_progress_ic_like"
@@ -96,7 +96,6 @@
                 android:layout_marginTop="@dimen/item_in_progress_tv_date_margin_top"
                 android:text="balblabl"
                 android:visibility="gone"/>
-
 
         </RelativeLayout>
 
