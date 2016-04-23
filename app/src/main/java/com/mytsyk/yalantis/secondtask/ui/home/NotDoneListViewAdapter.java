@@ -20,7 +20,8 @@ public class NotDoneListViewAdapter extends BaseAdapter {
     private View.OnClickListener mLaunchDetailCallback;
     private ArrayList<ItemTestData> mDataInProgress;
 
-    public NotDoneListViewAdapter(Context mContext, ArrayList<ItemTestData> data, View.OnClickListener callback) {
+    public NotDoneListViewAdapter(Context mContext, ArrayList<ItemTestData> data,
+                                  View.OnClickListener callback) {
         this.mContext = mContext;
         this.mDataInProgress = data;
         this.mLaunchDetailCallback = callback;
@@ -54,7 +55,7 @@ public class NotDoneListViewAdapter extends BaseAdapter {
             holder.mTvName = (TextView) view.findViewById(R.id.item_in_progress_tv_name);
             holder.mTvAddress = (TextView) view.findViewById(R.id.item_in_progress_tv_address);
             holder.mTvDate = (TextView) view.findViewById(R.id.item_in_progress_tv_date);
-            
+
             view.setTag(holder);
         } else {
             holder = (HolderNotDone) view.getTag();
