@@ -1,9 +1,11 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.mytsyk.yalantis.secondtask.R;
 
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {

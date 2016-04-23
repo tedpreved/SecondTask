@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-import com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton;
-import com.mytsyk.yalantis.secondtask.fab.ScrollDirectionListener;
+import com.mytsyk.yalantis.secondtask.R;
+import com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.home.fab.ScrollDirectionListener;
 
 
 public class NotDoneFragment extends Fragment {
@@ -31,6 +32,7 @@ public class NotDoneFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (mFloatingActionButton == null) return;
         mFloatingActionButton.attachToListView(mLvNotDone, scrollDirectionListener, onScrollListener);
     }
 

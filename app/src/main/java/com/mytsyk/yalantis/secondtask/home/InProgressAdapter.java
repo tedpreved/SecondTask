@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 
 import android.support.v7.widget.CardView;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mytsyk.yalantis.secondtask.R;
 
 public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.ViewHolder> {
 

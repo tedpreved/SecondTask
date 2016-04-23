@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.mytsyk.yalantis.secondtask.deteil.DetailActivity;
-import com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.R;
+import com.mytsyk.yalantis.secondtask.detail.DetailActivity;
+import com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton;
 
 public class HomeActivity extends AppCompatActivity {
 

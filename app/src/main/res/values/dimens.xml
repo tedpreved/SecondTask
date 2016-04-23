@@ -69,5 +69,6 @@
 
     <dimen name="item_in_progress_ic_like_size">18dp</dimen>
     <dimen name="item_in_progress_tv_like_width">30dp</dimen>
+    <dimen name="drawer_btn_login_padding_left">16dp</dimen>
 
 </resources>

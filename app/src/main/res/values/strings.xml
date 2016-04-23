@@ -28,6 +28,7 @@
     <string name="description">Open the door (near the billboard),
         turning the area on 18 and 19 tram at Prospekt Mira and the Donetsk highway.</string>
     <string name="drawer_header_label_econtact">e-contract</string>
+    <string name="drawer_btn_login_text">Увійти в аккаунт</string>
 
     <string-array name="array_url">
         <item>https://stv.maps.yandex.net/images/?v=3.08.0&amp;oid=1297679222_673949761_23_1430985844&amp;z=3&amp;x=3&amp;y=1</item>

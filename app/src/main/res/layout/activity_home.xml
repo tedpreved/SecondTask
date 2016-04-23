@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bc_main"
-        tools:context="com.mytsyk.yalantis.secondtask.HomeActivity">
+        tools:context=".home.HomeActivity">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -71,14 +71,17 @@
             android:layout_height="match_parent"
             android:layout_below="@id/activity_home_tab_layout" />
 
-        <com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton
+        <com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton
             android:id="@+id/activity_home_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/activity_home_fab_margin"/>
+            android:layout_margin="@dimen/activity_home_fab_margin"
+            app:backgroundTint="@color/color_fab"
+            android:src="@drawable/ic_plus"
+            android:scaleType="fitXY" />
 
     </RelativeLayout>
 

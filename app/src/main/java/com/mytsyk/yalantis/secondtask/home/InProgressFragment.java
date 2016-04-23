@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mytsyk.yalantis.secondtask.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.R;
+import com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton;
 
 
 public class InProgressFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.fab;
+package com.mytsyk.yalantis.secondtask.home.fab;
 
 public interface ScrollDirectionListener {
     void onScrollDown();

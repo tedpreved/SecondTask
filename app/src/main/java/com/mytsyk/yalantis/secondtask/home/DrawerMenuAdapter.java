@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask;
+package com.mytsyk.yalantis.secondtask.home;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mytsyk.yalantis.secondtask.R;
 
 
 public class DrawerMenuAdapter extends BaseAdapter {

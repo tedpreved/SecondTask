@@ -17,16 +17,15 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_tab_text_selected"/>
+    <View style="@style/Divider" />
     <Button
+        android:textAllCaps="false"
+        android:id="@+id/drawer_btn_login"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="войти в аккаунт"
+        android:text="@string/drawer_btn_login_text"
         android:gravity="left|center_vertical"
-        android:paddingLeft="16dp"/>
+        android:paddingLeft="@dimen/drawer_btn_login_padding_left" />
 
 </LinearLayout>

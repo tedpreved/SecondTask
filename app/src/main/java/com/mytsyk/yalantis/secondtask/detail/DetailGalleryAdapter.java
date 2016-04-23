@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.deteil;
+package com.mytsyk.yalantis.secondtask.detail;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
