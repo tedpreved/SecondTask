@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:splitMotionEvents="false"
-    android:background="@android:color/white">
-    <include layout="@layout/drawer_header"/>
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:splitMotionEvents="false">
+
+    <include layout="@layout/drawer_header" />
 
     <ListView
         android:id="@+id/activity_home_drawer"
@@ -18,14 +20,15 @@
         android:dividerHeight="0dp" />
 
     <View style="@style/Divider" />
+
     <Button
-        android:textAllCaps="false"
         android:id="@+id/drawer_btn_login"
-        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/drawer_btn_login_text"
+        android:background="@android:color/transparent"
         android:gravity="left|center_vertical"
-        android:paddingLeft="@dimen/drawer_btn_login_padding_left" />
+        android:paddingLeft="@dimen/drawer_btn_login_padding_left"
+        android:text="@string/drawer_btn_login_text"
+        android:textAllCaps="false" />
 
 </LinearLayout>

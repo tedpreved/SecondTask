@@ -49,7 +49,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/ic_filter_menu"/>
+                    android:src="@drawable/ic_filter_menu" />
 
             </RelativeLayout>
 
@@ -75,17 +75,17 @@
             android:id="@+id/activity_home_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/activity_home_fab_margin"
-            app:backgroundTint="@color/color_fab"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_plus"
-            android:scaleType="fitXY" />
+            app:backgroundTint="@color/color_fab" />
 
     </RelativeLayout>
 
-   <include layout="@layout/drawer"/>
+    <include layout="@layout/drawer" />
 
 </android.support.v4.widget.DrawerLayout>
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,7 +23,7 @@
                 android:layout_margin="@dimen/toolbar_icon_margin"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_arrow_left"/>
+                android:src="@drawable/ic_arrow_left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +32,7 @@
                 android:layout_toRightOf="@+id/toolbar_btn_back"
                 android:text="@string/title"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size_toolbar"/>
+                android:textSize="@dimen/text_size_toolbar" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -49,7 +48,7 @@
             <TextView
                 android:id="@+id/tv_order_type"
                 style="@style/TvNameOrder"
-                android:text="@string/tv_order_type"/>
+                android:text="@string/tv_order_type" />
 
             <TextView
                 android:id="@+id/tv_filter_work"
@@ -57,97 +56,97 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_order_type"
-                android:text="@string/tv_filter"/>
+                android:text="@string/tv_filter" />
 
             <View
                 android:id="@+id/divider"
                 style="@style/Divider"
-                android:layout_below="@+id/tv_filter_work"/>
+                android:layout_below="@+id/tv_filter_work" />
 
             <TextView
                 android:id="@+id/tv_label_created"
                 style="@style/TvTextGray"
                 android:layout_below="@+id/divider"
-                android:text="@string/tv_label_create_date"/>
+                android:text="@string/tv_label_create_date" />
 
             <TextView
                 android:id="@+id/tv_created_date"
                 style="@style/TvTextBlack"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/divider"
-                android:text="@string/tv_crated_date"/>
+                android:text="@string/tv_crated_date" />
 
             <View
                 android:id="@+id/divider_second"
                 style="@style/Divider"
-                android:layout_below="@+id/tv_created_date"/>
+                android:layout_below="@+id/tv_created_date" />
 
             <TextView
                 android:id="@+id/tv_label_registered"
                 style="@style/TvTextGray"
                 android:layout_below="@id/divider_second"
-                android:text="@string/tv_label_register_date"/>
+                android:text="@string/tv_label_register_date" />
 
             <TextView
                 android:id="@+id/tv_registered_date"
                 style="@style/TvTextBlack"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/divider_second"
-                android:text="@string/tv_registered_date"/>
+                android:text="@string/tv_registered_date" />
 
             <View
                 android:id="@+id/divider_third"
                 style="@style/Divider"
-                android:layout_below="@+id/tv_registered_date"/>
+                android:layout_below="@+id/tv_registered_date" />
 
             <TextView
                 android:id="@+id/tv_label_resolved"
                 style="@style/TvTextGray"
                 android:layout_below="@id/divider_third"
-                android:text="@string/tv_label_solved_date"/>
+                android:text="@string/tv_label_solved_date" />
 
             <TextView
                 android:id="@+id/tv_resolve_date"
                 style="@style/TvTextBlack"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/divider_third"
-                android:text="@string/tv_resolve_date"/>
+                android:text="@string/tv_resolve_date" />
 
             <View
                 android:id="@+id/divider_fourth"
                 style="@style/Divider"
-                android:layout_below="@+id/tv_resolve_date"/>
+                android:layout_below="@+id/tv_resolve_date" />
 
             <TextView
                 android:id="@+id/tv_label_responsible"
                 style="@style/TvTextGray"
                 android:layout_below="@id/divider_fourth"
-                android:text="@string/tv_label_name_responsible"/>
+                android:text="@string/tv_label_name_responsible" />
 
             <TextView
                 android:id="@+id/tv_responsible_name"
                 style="@style/TvTextBlack"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/divider_fourth"
-                android:text="@string/tv_responsible_name"/>
+                android:text="@string/tv_responsible_name" />
 
             <View
                 android:id="@+id/divider_fifth"
                 style="@style/Divider"
-                android:layout_below="@+id/tv_responsible_name"/>
+                android:layout_below="@+id/tv_responsible_name" />
 
             <TextView
                 android:id="@+id/tv_description"
                 style="@style/TvTextBlack"
                 android:layout_below="@id/divider_fifth"
                 android:gravity="left"
-                android:text="@string/description"/>
+                android:text="@string/description" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycle_view_gallery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_description"/>
+                android:layout_below="@id/tv_description" />
 
         </RelativeLayout>
     </ScrollView>

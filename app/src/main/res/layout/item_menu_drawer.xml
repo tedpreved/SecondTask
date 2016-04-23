@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/item_menu_drawer_title_padding_left"
-        android:text="hamazuk"
+        android:text="item"
         android:textColor="@android:color/black"
         android:textSize="@dimen/item_menu_drawer_text_size" />
 
