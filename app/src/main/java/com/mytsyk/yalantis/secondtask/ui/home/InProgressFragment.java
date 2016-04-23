@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mytsyk.yalantis.secondtask.R;
-import com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.model.ItemTestData;
+import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
+
+import java.util.ArrayList;
 
 
 public class InProgressFragment extends Fragment {
@@ -18,17 +21,18 @@ public class InProgressFragment extends Fragment {
     private CustomFloatingActionButton mFab;
     private HomeActivity.fabController mFabController;
     private View.OnClickListener mLaunchDetailCallback;
+    private ArrayList<ItemTestData> mDataInProgress;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
-
+        initData();
         mRvInProgress = (RecyclerView) view.findViewById(R.id.rv_in_progress);
         mRvInProgress.setHasFixedSize(true);
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        InProgressAdapter inProgressAdapter = new InProgressAdapter(mLaunchDetailCallback);
-        mRvInProgress.setAdapter(inProgressAdapter);
+        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailCallback);
+        mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab);
         mRvInProgress.addOnScrollListener(onScrollListener);
@@ -42,6 +46,18 @@ public class InProgressFragment extends Fragment {
 
     public void setLaunchDetailCallback(View.OnClickListener callback) {
         this.mLaunchDetailCallback = callback;
+    }
+
+    private void initData() {
+        mDataInProgress = new ArrayList<>();
+        final String title = getString(R.string.test_title);
+        final String address = getString(R.string.test_address);
+        final String date = getString(R.string.test_date);
+        final String countDay = getString(R.string.test_count_day);
+        for (int i = 0; i <= 10; i++) {
+            mDataInProgress.add(new ItemTestData(title, address, date, countDay));
+        }
+
     }
 
     private final RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {

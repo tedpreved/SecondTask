@@ -36,5 +36,9 @@
         <item>https://stv.maps.yandex.net/images/?v=3.10.1&amp;oid=1254596655_626631839_23_1371919747&amp;z=2&amp;x=8&amp;y=2</item>
     </string-array>
 
+    <string name="test_title">Питання стосовно боргу електроенергії</string>
+    <string name="test_address">Вул. Гетьмана Петра 25</string>
+    <string name="test_date">Кві 26, 2016</string>
+    <string name="test_count_day"> -14 days</string>
 
 </resources>

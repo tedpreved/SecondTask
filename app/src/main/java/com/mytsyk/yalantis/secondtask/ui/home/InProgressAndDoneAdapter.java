@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 
 import android.support.v7.widget.CardView;
@@ -10,12 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mytsyk.yalantis.secondtask.R;
+import com.mytsyk.yalantis.secondtask.model.ItemTestData;
 
-public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.ViewHolder> {
+import java.util.ArrayList;
+
+public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAndDoneAdapter.ViewHolder> {
 
     private View.OnClickListener mLaunchDetailCallback;
+    private ArrayList<ItemTestData> mDataInProgress;
 
-    public InProgressAdapter(View.OnClickListener callback) {
+    public InProgressAndDoneAdapter(ArrayList<ItemTestData> data, View.OnClickListener callback) {
+        mDataInProgress = data;
         mLaunchDetailCallback = callback;
     }
 
@@ -28,15 +33,24 @@ public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        final ItemTestData currentItem = mDataInProgress.get(position);
+
+        holder.mTvName.setText(currentItem.getTitle());
+        holder.mTvAddress.setText(currentItem.getAddress());
+        holder.mTvDate.setText(currentItem.getDate());
+
+        if (currentItem.getDaysCount() != null) {
+            holder.mTvCountDay.setVisibility(View.VISIBLE);
+            holder.mTvCountDay.setText(currentItem.getDaysCount());
+        }
         if (mLaunchDetailCallback != null) {
             holder.mCardView.setOnClickListener(mLaunchDetailCallback);
         }
-
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return mDataInProgress == null ? 0 : mDataInProgress.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

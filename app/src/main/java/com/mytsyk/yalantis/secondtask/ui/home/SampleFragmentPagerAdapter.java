@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

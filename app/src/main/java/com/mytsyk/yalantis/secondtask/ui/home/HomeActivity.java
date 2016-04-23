@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.mytsyk.yalantis.secondtask.R;
-import com.mytsyk.yalantis.secondtask.detail.DetailActivity;
-import com.mytsyk.yalantis.secondtask.home.fab.CustomFloatingActionButton;
+import com.mytsyk.yalantis.secondtask.ui.detail.DetailActivity;
+import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -66,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
         inProgressFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
         inProgressFragment.setFabController(fabController);
 
-        final InProgressFragment completeFragment = new InProgressFragment();
+        final DoneFragment completeFragment = new DoneFragment();
         completeFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
         completeFragment.setFabController(fabController);
 

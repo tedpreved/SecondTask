@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.detail;
+package com.mytsyk.yalantis.secondtask.ui.detail;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 
 import android.content.Context;
@@ -11,19 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mytsyk.yalantis.secondtask.R;
+import com.mytsyk.yalantis.secondtask.model.ItemTestData;
+
+import java.util.ArrayList;
 
 public class NotDoneListViewAdapter extends BaseAdapter {
     private Context mContext;
     private View.OnClickListener mLaunchDetailCallback;
+    private ArrayList<ItemTestData> mDataInProgress;
 
-    public NotDoneListViewAdapter(Context mContext, View.OnClickListener callback) {
+    public NotDoneListViewAdapter(Context mContext, ArrayList<ItemTestData> data, View.OnClickListener callback) {
         this.mContext = mContext;
+        this.mDataInProgress = data;
         this.mLaunchDetailCallback = callback;
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return mDataInProgress == null ? 0 : mDataInProgress.size();
     }
 
     @Override
@@ -44,11 +49,22 @@ public class NotDoneListViewAdapter extends BaseAdapter {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_not_done, parent, false);
             holder = new HolderNotDone();
             holder.mCardView = (CardView) view.findViewById(R.id.item_in_progress_cardview);
-            //
+            holder.mImIconBig = (ImageView) view.findViewById(R.id.item_in_progress_ic_big);
+            holder.mTvCountLike = (TextView) view.findViewById(R.id.item_in_progress_tv_like);
+            holder.mTvName = (TextView) view.findViewById(R.id.item_in_progress_tv_name);
+            holder.mTvAddress = (TextView) view.findViewById(R.id.item_in_progress_tv_address);
+            holder.mTvDate = (TextView) view.findViewById(R.id.item_in_progress_tv_date);
+            
             view.setTag(holder);
         } else {
             holder = (HolderNotDone) view.getTag();
         }
+        final ItemTestData currentItem = mDataInProgress.get(position);
+
+        holder.mTvName.setText(currentItem.getTitle());
+        holder.mTvAddress.setText(currentItem.getAddress());
+        holder.mTvDate.setText(currentItem.getDate());
+
         if (mLaunchDetailCallback != null) {
             holder.mCardView.setOnClickListener(mLaunchDetailCallback);
         }
@@ -57,7 +73,7 @@ public class NotDoneListViewAdapter extends BaseAdapter {
 
     private class HolderNotDone {
         private CardView mCardView;
-        private ImageView mIcCardViewBig;
+        private ImageView mImIconBig;
         private TextView mTvCountLike;
         private TextView mTvName;
         private TextView mTvAddress;

@@ -1,4 +1,4 @@
-package com.mytsyk.yalantis.secondtask.home;
+package com.mytsyk.yalantis.secondtask.ui.home;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -18,14 +18,15 @@ public class DrawerMenuAdapter extends BaseAdapter {
     private String[] mStringId;
 
 
-    public DrawerMenuAdapter(Context context, int[] iconMass, String[] menuTextMass){
-        this.mContext=context;
-        this.mIconIds=iconMass;
-        this.mStringId=menuTextMass;
+    public DrawerMenuAdapter(Context context, int[] iconMass, String[] menuTextMass) {
+        this.mContext = context;
+        this.mIconIds = iconMass;
+        this.mStringId = menuTextMass;
     }
+
     @Override
     public int getCount() {
-        return mIconIds==null ? 0 : mIconIds.length;
+        return mIconIds == null ? 0 : mIconIds.length;
     }
 
     @Override
@@ -45,19 +46,19 @@ public class DrawerMenuAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_menu_drawer, parent, false);
             holder = new HolderMenu();
-            holder.mMenuIcon=(ImageView) view.findViewById(R.id.item_menu_drawer_im_icon);
-            holder.mMenuTitle=(TextView) view.findViewById(R.id.item_menu_drawer_title);
+            holder.mMenuIcon = (ImageView) view.findViewById(R.id.item_menu_drawer_im_icon);
+            holder.mMenuTitle = (TextView) view.findViewById(R.id.item_menu_drawer_title);
             view.setTag(holder);
         } else {
             holder = (HolderMenu) view.getTag();
         }
-            holder.mMenuTitle.setText(mStringId[position]);
-            holder.mMenuIcon.setImageDrawable(ContextCompat.getDrawable(mContext,mIconIds[position]));
+        holder.mMenuTitle.setText(mStringId[position]);
+        holder.mMenuIcon.setImageDrawable(ContextCompat.getDrawable(mContext, mIconIds[position]));
 
         return view;
     }
 
-    private class HolderMenu{
+    private class HolderMenu {
         private ImageView mMenuIcon;
         private TextView mMenuTitle;
     }
