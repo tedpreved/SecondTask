@@ -65,6 +65,8 @@
                 style="@style/TextViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_in_progress_tv_name_height"
+                android:lines="2"
+                android:ellipsize="end"
                 android:text="BLABLABLABLABL" />
 
             <TextView

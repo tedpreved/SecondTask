@@ -60,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         mFab = (CustomFloatingActionButton) findViewById(R.id.activity_home_fab);
+        mFab.setOnClickListener(mFabClickListener);
 
         final InProgressFragment inProgressFragment = new InProgressFragment();
         inProgressFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
@@ -114,6 +115,13 @@ public class HomeActivity extends AppCompatActivity {
             if (mDrawerLayout == null) return;
             mDrawerLayout = (DrawerLayout) findViewById(R.id.home_activity_drawer_layout);
             mDrawerLayout.openDrawer(Gravity.LEFT);
+        }
+    };
+
+    private View.OnClickListener mFabClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
         }
     };
 }

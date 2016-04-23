@@ -47,6 +47,7 @@ public class InProgressFragment extends Fragment {
     private final RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            if (mFabController == null) return;
             if (dy > 0 && mFab.mVisible) mFabController.hide();
 
             if (dy < 0 && !mFab.mVisible) mFabController.show();
