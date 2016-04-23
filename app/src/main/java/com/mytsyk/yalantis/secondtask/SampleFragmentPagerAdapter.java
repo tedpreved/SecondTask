@@ -8,15 +8,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
-    private String tabTitles[];
-    private Context context;
+    private String mTabTitles[];
+    private Context mContext;
     private Fragment[] mFragmentList;
 
     public SampleFragmentPagerAdapter(FragmentManager fm, Context context, Fragment[] fragments) {
         super(fm);
-        this.context = context;
+        this.mContext = context;
         this.mFragmentList = fragments;
-        tabTitles = context.getResources().getStringArray(R.array.home_activity_tab_name);
+        mTabTitles = context.getResources().getStringArray(R.array.home_activity_tab_name);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return tabTitles[position];
+        return mTabTitles[position];
     }
 
 

@@ -10,11 +10,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class NotDoneListViewAdapter extends BaseAdapter{
+public class NotDoneListViewAdapter extends BaseAdapter {
     private Context mContext;
+    private View.OnClickListener mLaunchDetailCallback;
 
-    public NotDoneListViewAdapter(Context mContext) {
+    public NotDoneListViewAdapter(Context mContext, View.OnClickListener callback) {
         this.mContext = mContext;
+        this.mLaunchDetailCallback = callback;
     }
 
     @Override
@@ -39,17 +41,19 @@ public class NotDoneListViewAdapter extends BaseAdapter{
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_not_done, parent, false);
             holder = new HolderNotDone();
-            holder.mCardView=(CardView)view.findViewById(R.id.item_in_progress_cardview);
+            holder.mCardView = (CardView) view.findViewById(R.id.item_in_progress_cardview);
             //
             view.setTag(holder);
         } else {
             holder = (HolderNotDone) view.getTag();
         }
-
+        if (mLaunchDetailCallback != null) {
+            holder.mCardView.setOnClickListener(mLaunchDetailCallback);
+        }
         return view;
     }
 
-    private class HolderNotDone{
+    private class HolderNotDone {
         private CardView mCardView;
         private ImageView mIcCardViewBig;
         private TextView mTvCountLike;

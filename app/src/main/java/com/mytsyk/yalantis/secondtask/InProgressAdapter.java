@@ -1,6 +1,7 @@
 package com.mytsyk.yalantis.secondtask;
 
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,11 @@ import android.widget.TextView;
 
 public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.ViewHolder> {
 
+    private View.OnClickListener mLaunchDetailCallback;
+
+    public InProgressAdapter(View.OnClickListener callback) {
+        mLaunchDetailCallback = callback;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -20,6 +26,9 @@ public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        if (mLaunchDetailCallback != null) {
+            holder.mCardView.setOnClickListener(mLaunchDetailCallback);
+        }
 
     }
 
@@ -29,7 +38,8 @@ public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mIcCardViewBig;
+        private CardView mCardView;
+        private ImageView mImIconBig;
         private TextView mTvCountLike;
         private TextView mTvName;
         private TextView mTvAddress;
@@ -38,7 +48,8 @@ public class InProgressAdapter extends RecyclerView.Adapter<InProgressAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mIcCardViewBig = (ImageView) itemView.findViewById(R.id.item_in_progress_ic_big);
+            mCardView = (CardView) itemView.findViewById(R.id.item_in_progress_cardview);
+            mImIconBig = (ImageView) itemView.findViewById(R.id.item_in_progress_ic_big);
             mTvCountLike = (TextView) itemView.findViewById(R.id.item_in_progress_tv_like);
             mTvName = (TextView) itemView.findViewById(R.id.item_in_progress_tv_name);
             mTvAddress = (TextView) itemView.findViewById(R.id.item_in_progress_tv_address);

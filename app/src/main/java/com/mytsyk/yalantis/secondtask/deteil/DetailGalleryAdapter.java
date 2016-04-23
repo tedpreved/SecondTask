@@ -13,12 +13,12 @@ import com.mytsyk.yalantis.secondtask.R;
 import java.util.List;
 
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+public class DetailGalleryAdapter extends RecyclerView.Adapter<DetailGalleryAdapter.ViewHolder> {
     private Context mContext;
     private List<String> mUrlImages;
     private View.OnClickListener mOnImageClickListener;
 
-    public GalleryAdapter(Context context, List<String> urlImages, View.OnClickListener callback) {
+    public DetailGalleryAdapter(Context context, List<String> urlImages, View.OnClickListener callback) {
         this.mContext = context;
         this.mUrlImages = urlImages;
         this.mOnImageClickListener = callback;

@@ -14,28 +14,32 @@ import com.mytsyk.yalantis.secondtask.fab.ScrollDirectionListener;
 
 
 public class NotDoneFragment extends Fragment {
-    private ListView lvNotDone;
-    private CustomFloatingActionButton floatingActionButton;
+    private ListView mLvNotDone;
+    private CustomFloatingActionButton mFloatingActionButton;
+    private View.OnClickListener mLaunchDetailCallback;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view=inflater.inflate(R.layout.fragment_not_done,container,false);
-
-        lvNotDone=(ListView)view.findViewById(R.id.fragment_not_done_lv_not_done);
-        NotDoneListViewAdapter notDoneListViewAdapter=new NotDoneListViewAdapter(getActivity());
-        lvNotDone.setAdapter(notDoneListViewAdapter);
+        final View view = inflater.inflate(R.layout.fragment_not_done, container, false);
+        mLvNotDone = (ListView) view.findViewById(R.id.fragment_not_done_lv_not_done);
+        NotDoneListViewAdapter notDoneListViewAdapter = new NotDoneListViewAdapter(getActivity(), mLaunchDetailCallback);
+        mLvNotDone.setAdapter(notDoneListViewAdapter);
         return view;
-    }
-
-    public void setFabButton(CustomFloatingActionButton fabButton){
-        this.floatingActionButton = fabButton;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        floatingActionButton.attachToListView(lvNotDone, scrollDirectionListener, onScrollListener);
+        mFloatingActionButton.attachToListView(mLvNotDone, scrollDirectionListener, onScrollListener);
+    }
+
+    public void setFabButton(CustomFloatingActionButton fabButton) {
+        this.mFloatingActionButton = fabButton;
+    }
+
+    public void setLaunchDetailCallback(View.OnClickListener callback) {
+        this.mLaunchDetailCallback = callback;
     }
 
     private ScrollDirectionListener scrollDirectionListener = new ScrollDirectionListener() {
@@ -50,7 +54,7 @@ public class NotDoneFragment extends Fragment {
         }
     };
 
-    private  AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() {
+    private AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() {
         @Override
         public void onScrollStateChanged(AbsListView view, int scrollState) {
 

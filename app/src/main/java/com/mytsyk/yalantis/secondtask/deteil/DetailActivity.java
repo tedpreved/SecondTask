@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
 
     private RecyclerView mRvGallery;
-    private GalleryAdapter mGalleryAdapter;
+    private DetailGalleryAdapter mDetailGalleryAdapter;
     private List<String> mImagesUrls;
     private Toolbar mToolBar;
 
@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         mRvGallery = (RecyclerView) findViewById(R.id.recycle_view_gallery);
         mRvGallery.setHasFixedSize(true);
         mRvGallery.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        mGalleryAdapter = new GalleryAdapter(this, mImagesUrls, onViewClickListener);
-        mRvGallery.setAdapter(mGalleryAdapter);
+        mDetailGalleryAdapter = new DetailGalleryAdapter(this, mImagesUrls, onViewClickListener);
+        mRvGallery.setAdapter(mDetailGalleryAdapter);
     }
 
     private void initView() {
