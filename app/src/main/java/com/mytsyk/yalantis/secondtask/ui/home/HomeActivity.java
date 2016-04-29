@@ -67,10 +67,11 @@ public class HomeActivity extends AppCompatActivity {
         inProgressFragment.setFabController(fabController);
 
         final DoneFragment completeFragment = new DoneFragment();
-        completeFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
+        completeFragment.setLaunchDetailCallback(mLaunchDetailsActivity); //[Comment] Bad Activity -> Fragment communication
+        //Use onAttach method
         completeFragment.setFabController(fabController);
 
-        final NotDoneFragment notDoneFragment = new NotDoneFragment();
+        final NotDoneFragment notDoneFragment = new NotDoneFragment(); //[Comment] Use newInstance
         notDoneFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
         notDoneFragment.setFabButton(mFab);
 
@@ -95,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    public interface fabController {
+    public interface fabController { //[Comment] BAD interface name.
         void hide();
 
         void show();

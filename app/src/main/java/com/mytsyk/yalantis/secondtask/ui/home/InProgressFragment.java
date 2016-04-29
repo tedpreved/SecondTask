@@ -21,7 +21,7 @@ public class InProgressFragment extends Fragment {
     private CustomFloatingActionButton mFab;
     private HomeActivity.fabController mFabController;
     private View.OnClickListener mLaunchDetailCallback;
-    private ArrayList<ItemTestData> mDataInProgress;
+    private ArrayList<ItemTestData> mDataInProgress; //[Comment] Use abstraction instead of realization
 
     @Nullable
     @Override
@@ -34,14 +34,14 @@ public class InProgressFragment extends Fragment {
         InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailCallback);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
-        mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab);
+        mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab); //[Comment] You don't need this object in fragment
         mRvInProgress.addOnScrollListener(onScrollListener);
 
         return view;
     }
 
     public void setFabController(HomeActivity.fabController mFabController) {
-        this.mFabController = mFabController;
+        this.mFabController = mFabController; //[Comment] wrong argument name
     }
 
     public void setLaunchDetailCallback(View.OnClickListener callback) {

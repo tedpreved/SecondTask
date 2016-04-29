@@ -44,11 +44,11 @@ public class DoneFragment extends Fragment {
     }
 
     public void setFabController(HomeActivity.fabController mFabController) {
-        this.mFabController = mFabController;
+        this.mFabController = mFabController; //[Comment] Wrong argument name
     }
 
     public void setLaunchDetailCallback(View.OnClickListener callback) {
-        this.mLaunchDetailCallback = callback;
+        this.mLaunchDetailCallback = callback; //[Comment] Unnecessary this
     }
 
     private void initData() {

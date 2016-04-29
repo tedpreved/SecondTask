@@ -55,8 +55,8 @@ public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAnd
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView mCardView;
-        private ImageView mImIconBig;
-        private TextView mTvCountLike;
+        private ImageView mImIconBig; //[Comment] Unused
+        private TextView mTvCountLike; //[Comment] Unused
         private TextView mTvName;
         private TextView mTvAddress;
         private TextView mTvDate;

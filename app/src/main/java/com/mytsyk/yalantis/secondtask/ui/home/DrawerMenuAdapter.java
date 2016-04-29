@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.mytsyk.yalantis.secondtask.R;
 
 
-public class DrawerMenuAdapter extends BaseAdapter {
+public class DrawerMenuAdapter extends BaseAdapter { //[Comment] Use navigation view
     private Context mContext;
     private int[] mIconIds;
     private String[] mStringId;

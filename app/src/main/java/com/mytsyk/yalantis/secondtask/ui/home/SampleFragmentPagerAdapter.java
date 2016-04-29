@@ -11,13 +11,13 @@ import com.mytsyk.yalantis.secondtask.R;
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
     private String mTabTitles[];
-    private Context mContext;
+    private Context mContext; //[Comment] Unused
     private Fragment[] mFragmentList;
 
     public SampleFragmentPagerAdapter(FragmentManager fm, Context context, Fragment[] fragments) {
         super(fm);
         this.mContext = context;
-        this.mFragmentList = fragments;
+        this.mFragmentList = fragments; //[Comment] Unnecessary this
         mTabTitles = context.getResources().getStringArray(R.array.home_activity_tab_name);
     }
 
