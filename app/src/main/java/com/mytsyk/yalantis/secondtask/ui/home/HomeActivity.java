@@ -16,7 +16,7 @@ import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.ui.detail.DetailActivity;
 import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements OnLaunchDetailsListener {
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -62,17 +62,15 @@ public class HomeActivity extends AppCompatActivity {
         mFab = (CustomFloatingActionButton) findViewById(R.id.activity_home_fab);
         mFab.setOnClickListener(mFabClickListener);
 
-        final InProgressFragment inProgressFragment = new InProgressFragment();
-        inProgressFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
-        inProgressFragment.setFabController(fabController);
+        final InProgressFragment inProgressFragment = InProgressFragment.newInstance();
+        inProgressFragment.setFabController(fabChangeVisibilityListener);
 
-        final DoneFragment completeFragment = new DoneFragment();
-        completeFragment.setLaunchDetailCallback(mLaunchDetailsActivity); //[Comment] Bad Activity -> Fragment communication
+        final DoneFragment completeFragment = DoneFragment.newInstance();
+        //[Comment] Bad Activity -> Fragment communication
         //Use onAttach method
-        completeFragment.setFabController(fabController);
+        completeFragment.setFabController(fabChangeVisibilityListener);
 
-        final NotDoneFragment notDoneFragment = new NotDoneFragment(); //[Comment] Use newInstance
-        notDoneFragment.setLaunchDetailCallback(mLaunchDetailsActivity);
+        final NotDoneFragment notDoneFragment = NotDoneFragment.newInstance(); //[Comment] Use newInstance
         notDoneFragment.setFabButton(mFab);
 
         final Fragment[] mFragmentList = {inProgressFragment, completeFragment, notDoneFragment};
@@ -84,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
-    private HomeActivity.fabController fabController = new fabController() {
+    private fabChangeVisibilityListener fabChangeVisibilityListener = new fabChangeVisibilityListener() {
         @Override
         public void hide() {
             mFab.hide();
@@ -96,19 +94,18 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    public interface fabController { //[Comment] BAD interface name.
+    @Override
+    public void onDetailClick(View view) {
+        Intent detailActivity = new Intent(getApplicationContext(), DetailActivity.class);
+        startActivity(detailActivity);
+    }
+
+
+    public interface fabChangeVisibilityListener {
         void hide();
 
         void show();
     }
-
-    private View.OnClickListener mLaunchDetailsActivity = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent detailActivity = new Intent(getApplicationContext(), DetailActivity.class);
-            startActivity(detailActivity);
-        }
-    };
 
     private View.OnClickListener showDrawerListener = new View.OnClickListener() {
         @Override

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mytsyk.yalantis.secondtask.R;
@@ -16,12 +15,12 @@ import java.util.ArrayList;
 
 public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAndDoneAdapter.ViewHolder> {
 
-    private View.OnClickListener mLaunchDetailCallback;
+    private OnLaunchDetailsListener onLaunchDetailsListener;
     private ArrayList<ItemTestData> mDataInProgress;
 
-    public InProgressAndDoneAdapter(ArrayList<ItemTestData> data, View.OnClickListener callback) {
+    public InProgressAndDoneAdapter(ArrayList<ItemTestData> data, OnLaunchDetailsListener listener) {
         mDataInProgress = data;
-        mLaunchDetailCallback = callback;
+        onLaunchDetailsListener = listener;
     }
 
     @Override
@@ -43,8 +42,8 @@ public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAnd
             holder.mTvCountDay.setVisibility(View.VISIBLE);
             holder.mTvCountDay.setText(currentItem.getDaysCount());
         }
-        if (mLaunchDetailCallback != null) {
-            holder.mCardView.setOnClickListener(mLaunchDetailCallback);
+        if (onLaunchDetailsListener != null) {
+            holder.mCardView.setOnClickListener(onCardClickListener);
         }
     }
 
@@ -53,10 +52,16 @@ public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAnd
         return mDataInProgress == null ? 0 : mDataInProgress.size();
     }
 
+
+    private View.OnClickListener onCardClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            onLaunchDetailsListener.onDetailClick(view);
+        }
+    };
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView mCardView;
-        private ImageView mImIconBig; //[Comment] Unused
-        private TextView mTvCountLike; //[Comment] Unused
         private TextView mTvName;
         private TextView mTvAddress;
         private TextView mTvDate;
@@ -65,8 +70,6 @@ public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAnd
         public ViewHolder(View itemView) {
             super(itemView);
             mCardView = (CardView) itemView.findViewById(R.id.item_in_progress_cardview);
-            mImIconBig = (ImageView) itemView.findViewById(R.id.item_in_progress_ic_big);
-            mTvCountLike = (TextView) itemView.findViewById(R.id.item_in_progress_tv_like);
             mTvName = (TextView) itemView.findViewById(R.id.item_in_progress_tv_name);
             mTvAddress = (TextView) itemView.findViewById(R.id.item_in_progress_tv_address);
             mTvDate = (TextView) itemView.findViewById(R.id.item_in_progress_tv_date);

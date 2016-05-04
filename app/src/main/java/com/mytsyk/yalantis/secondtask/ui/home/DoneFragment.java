@@ -1,5 +1,6 @@
 package com.mytsyk.yalantis.secondtask.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,9 +20,26 @@ import java.util.ArrayList;
 public class DoneFragment extends Fragment {
     private RecyclerView mRvInProgress;
     private CustomFloatingActionButton mFab;
-    private HomeActivity.fabController mFabController;
-    private View.OnClickListener mLaunchDetailCallback;
+    private HomeActivity.fabChangeVisibilityListener mFabChangeVisibilityListener;
+
+    private OnLaunchDetailsListener mLaunchDetailListener;
     private ArrayList<ItemTestData> mDataInProgress;
+
+    public static DoneFragment newInstance() {
+        DoneFragment doneFragment = new DoneFragment();
+        return doneFragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mLaunchDetailListener = (OnLaunchDetailsListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement OnLaunchDetailListener");
+        }
+
+    }
 
     @Nullable
     @Override
@@ -34,7 +52,7 @@ public class DoneFragment extends Fragment {
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         InProgressAndDoneAdapter inProgressAndDoneAdapter =
-                new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailCallback);
+                new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab);
@@ -43,13 +61,10 @@ public class DoneFragment extends Fragment {
         return view;
     }
 
-    public void setFabController(HomeActivity.fabController mFabController) {
-        this.mFabController = mFabController; //[Comment] Wrong argument name
+    public void setFabController(HomeActivity.fabChangeVisibilityListener fabChangeVisibilityListener) {
+        this.mFabChangeVisibilityListener = fabChangeVisibilityListener;
     }
 
-    public void setLaunchDetailCallback(View.OnClickListener callback) {
-        this.mLaunchDetailCallback = callback; //[Comment] Unnecessary this
-    }
 
     private void initData() {
         mDataInProgress = new ArrayList<>();
@@ -65,10 +80,10 @@ public class DoneFragment extends Fragment {
     private final RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            if (mFabController == null) return;
-            if (dy > 0 && mFab.mVisible) mFabController.hide();
+            if (mFabChangeVisibilityListener == null) return;
+            if (dy > 0 && mFab.mVisible) mFabChangeVisibilityListener.hide();
 
-            if (dy < 0 && !mFab.mVisible) mFabController.show();
+            if (dy < 0 && !mFab.mVisible) mFabChangeVisibilityListener.show();
         }
     };
 }

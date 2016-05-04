@@ -1,5 +1,6 @@
 package com.mytsyk.yalantis.secondtask.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,9 +20,26 @@ import java.util.ArrayList;
 public class InProgressFragment extends Fragment {
     private RecyclerView mRvInProgress;
     private CustomFloatingActionButton mFab;
-    private HomeActivity.fabController mFabController;
-    private View.OnClickListener mLaunchDetailCallback;
-    private ArrayList<ItemTestData> mDataInProgress; //[Comment] Use abstraction instead of realization
+    private HomeActivity.fabChangeVisibilityListener mFabChangeVisibilityListener;
+
+    private OnLaunchDetailsListener mLaunchDetailListener;
+
+    private ArrayList<ItemTestData> mDataInProgress; // TODO Use abstraction instead of realization
+
+    public static InProgressFragment newInstance() {
+        InProgressFragment inProgressFragment = new InProgressFragment();
+        return inProgressFragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mLaunchDetailListener = (OnLaunchDetailsListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement OnLaunchDetailListener");
+        }
+    }
 
     @Nullable
     @Override
@@ -31,7 +49,7 @@ public class InProgressFragment extends Fragment {
         mRvInProgress = (RecyclerView) view.findViewById(R.id.rv_in_progress);
         mRvInProgress.setHasFixedSize(true);
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailCallback);
+        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab); //[Comment] You don't need this object in fragment
@@ -40,12 +58,8 @@ public class InProgressFragment extends Fragment {
         return view;
     }
 
-    public void setFabController(HomeActivity.fabController mFabController) {
-        this.mFabController = mFabController; //[Comment] wrong argument name
-    }
-
-    public void setLaunchDetailCallback(View.OnClickListener callback) {
-        this.mLaunchDetailCallback = callback;
+    public void setFabController(HomeActivity.fabChangeVisibilityListener fabChangeVisibilityListener) {
+        this.mFabChangeVisibilityListener = fabChangeVisibilityListener;
     }
 
     private void initData() {
@@ -63,10 +77,10 @@ public class InProgressFragment extends Fragment {
     private final RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            if (mFabController == null) return;
-            if (dy > 0 && mFab.mVisible) mFabController.hide();
+            if (mFabChangeVisibilityListener == null) return;
+            if (dy > 0 && mFab.mVisible) mFabChangeVisibilityListener.hide();
 
-            if (dy < 0 && !mFab.mVisible) mFabController.show();
+            if (dy < 0 && !mFab.mVisible) mFabChangeVisibilityListener.show();
         }
     };
 }

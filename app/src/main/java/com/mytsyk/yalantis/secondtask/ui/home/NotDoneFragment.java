@@ -1,5 +1,6 @@
 package com.mytsyk.yalantis.secondtask.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,7 +22,25 @@ public class NotDoneFragment extends Fragment {
     private ListView mLvNotDone;
     private CustomFloatingActionButton mFloatingActionButton;
     private ArrayList<ItemTestData> mDataInProgress;
-    private View.OnClickListener mLaunchDetailCallback;
+
+    private OnLaunchDetailsListener mLaunchDetailListener;
+
+    public static NotDoneFragment newInstance() {
+        NotDoneFragment notDoneFragment = new NotDoneFragment();
+        return notDoneFragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mLaunchDetailListener = (OnLaunchDetailsListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement OnLaunchDetailListener");
+        }
+
+    }
 
     @Nullable
     @Override
@@ -31,7 +50,7 @@ public class NotDoneFragment extends Fragment {
         initData();
         mLvNotDone = (ListView) view.findViewById(R.id.fragment_not_done_lv_not_done);
         NotDoneListViewAdapter notDoneListViewAdapter = new NotDoneListViewAdapter(getActivity(),
-                mDataInProgress, mLaunchDetailCallback);
+                mDataInProgress, mLaunchDetailListener);
         mLvNotDone.setAdapter(notDoneListViewAdapter);
         return view;
     }
@@ -56,10 +75,6 @@ public class NotDoneFragment extends Fragment {
 
     public void setFabButton(CustomFloatingActionButton fabButton) {
         this.mFloatingActionButton = fabButton;
-    }
-
-    public void setLaunchDetailCallback(View.OnClickListener callback) {
-        this.mLaunchDetailCallback = callback;
     }
 
 
