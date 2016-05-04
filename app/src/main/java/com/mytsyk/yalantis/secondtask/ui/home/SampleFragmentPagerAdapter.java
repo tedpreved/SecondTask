@@ -1,29 +1,23 @@
 package com.mytsyk.yalantis.secondtask.ui.home;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.mytsyk.yalantis.secondtask.R;
-
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
     private String mTabTitles[];
-    private Context mContext; //[Comment] Unused
     private Fragment[] mFragmentList;
 
-    public SampleFragmentPagerAdapter(FragmentManager fm, Context context, Fragment[] fragments) {
+    public SampleFragmentPagerAdapter(FragmentManager fm, String[] arrayTitles, Fragment[] fragments) {
         super(fm);
-        this.mContext = context;
-        this.mFragmentList = fragments; //[Comment] Unnecessary this
-        mTabTitles = context.getResources().getStringArray(R.array.home_activity_tab_name);
+        this.mFragmentList = fragments;
+        this.mTabTitles = arrayTitles;
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return mFragmentList == null ? 0 : mFragmentList.length;
     }
 
     @Override

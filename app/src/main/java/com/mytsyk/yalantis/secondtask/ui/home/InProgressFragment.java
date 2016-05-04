@@ -12,15 +12,13 @@ import android.view.ViewGroup;
 
 import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
-import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
 
 import java.util.ArrayList;
 
 
 public class InProgressFragment extends Fragment {
     private RecyclerView mRvInProgress;
-    private CustomFloatingActionButton mFab;
-    private HomeActivity.fabChangeVisibilityListener mFabChangeVisibilityListener;
+    private FabChangeVisibilityListener mFabChangeVisibilityListener;
 
     private OnLaunchDetailsListener mLaunchDetailListener;
 
@@ -36,6 +34,7 @@ public class InProgressFragment extends Fragment {
         super.onAttach(context);
         try {
             mLaunchDetailListener = (OnLaunchDetailsListener) context;
+            mFabChangeVisibilityListener = (FabChangeVisibilityListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + "must implement OnLaunchDetailListener");
         }
@@ -52,15 +51,12 @@ public class InProgressFragment extends Fragment {
         InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
-        mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab); //[Comment] You don't need this object in fragment
+        //mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab); //[Comment] You don't need this object in fragment
         mRvInProgress.addOnScrollListener(onScrollListener);
 
         return view;
     }
 
-    public void setFabController(HomeActivity.fabChangeVisibilityListener fabChangeVisibilityListener) {
-        this.mFabChangeVisibilityListener = fabChangeVisibilityListener;
-    }
 
     private void initData() {
         mDataInProgress = new ArrayList<>();
@@ -78,9 +74,9 @@ public class InProgressFragment extends Fragment {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             if (mFabChangeVisibilityListener == null) return;
-            if (dy > 0 && mFab.mVisible) mFabChangeVisibilityListener.hide();
+            if (dy > 0) mFabChangeVisibilityListener.hideFab();
 
-            if (dy < 0 && !mFab.mVisible) mFabChangeVisibilityListener.show();
+            if (dy < 0) mFabChangeVisibilityListener.showFab();
         }
     };
 }

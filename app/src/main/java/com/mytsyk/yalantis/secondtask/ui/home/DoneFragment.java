@@ -12,15 +12,13 @@ import android.view.ViewGroup;
 
 import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
-import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
 
 import java.util.ArrayList;
 
 
 public class DoneFragment extends Fragment {
     private RecyclerView mRvInProgress;
-    private CustomFloatingActionButton mFab;
-    private HomeActivity.fabChangeVisibilityListener mFabChangeVisibilityListener;
+    private FabChangeVisibilityListener mFabChangeVisibilityListener;
 
     private OnLaunchDetailsListener mLaunchDetailListener;
     private ArrayList<ItemTestData> mDataInProgress;
@@ -35,6 +33,7 @@ public class DoneFragment extends Fragment {
         super.onAttach(context);
         try {
             mLaunchDetailListener = (OnLaunchDetailsListener) context;
+            mFabChangeVisibilityListener = (FabChangeVisibilityListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + "must implement OnLaunchDetailListener");
         }
@@ -55,16 +54,10 @@ public class DoneFragment extends Fragment {
                 new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
-        mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab);
         mRvInProgress.addOnScrollListener(onScrollListener);
 
         return view;
     }
-
-    public void setFabController(HomeActivity.fabChangeVisibilityListener fabChangeVisibilityListener) {
-        this.mFabChangeVisibilityListener = fabChangeVisibilityListener;
-    }
-
 
     private void initData() {
         mDataInProgress = new ArrayList<>();
@@ -81,9 +74,9 @@ public class DoneFragment extends Fragment {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             if (mFabChangeVisibilityListener == null) return;
-            if (dy > 0 && mFab.mVisible) mFabChangeVisibilityListener.hide();
+            if (dy > 0) mFabChangeVisibilityListener.hideFab();
 
-            if (dy < 0 && !mFab.mVisible) mFabChangeVisibilityListener.show();
+            if (dy < 0) mFabChangeVisibilityListener.showFab();
         }
     };
 }
