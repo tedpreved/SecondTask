@@ -1,34 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_home_navigation_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    android:splitMotionEvents="false">
+    app:elevation="0dp"
+    app:headerLayout="@layout/drawer_header"
+    app:menu="@menu/menu_drawer" />
 
-    <include layout="@layout/drawer_header" />
-
-    <ListView
-        android:id="@+id/activity_home_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="@android:color/white"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" />
-
-    <View style="@style/Divider" />
-
-    <Button
-        android:id="@+id/drawer_btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="@dimen/drawer_btn_login_padding_left"
-        android:text="@string/drawer_btn_login_text"
-        android:textAllCaps="false" />
-
-</LinearLayout>

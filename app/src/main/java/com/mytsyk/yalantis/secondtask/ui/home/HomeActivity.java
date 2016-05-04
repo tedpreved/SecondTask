@@ -2,15 +2,16 @@ package com.mytsyk.yalantis.secondtask.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.ui.detail.DetailActivity;
@@ -27,10 +28,7 @@ public class HomeActivity extends AppCompatActivity implements OnLaunchDetailsLi
     private ImageView imShowDrawer;
 
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-
-    private int[] mIconMass = {R.drawable.ic_issues,
-            R.drawable.ic_map};
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +41,10 @@ public class HomeActivity extends AppCompatActivity implements OnLaunchDetailsLi
     private void initDrawer() {
         imShowDrawer = (ImageView) findViewById(R.id.activity_home_im_menu);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.home_activity_drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.activity_home_drawer);
 
+        mNavigationView = (NavigationView) findViewById(R.id.activity_home_navigation_view);
 
-        final String[] menuTitle = getResources().getStringArray(R.array.mass_menu_title);
-        final DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(getApplicationContext(),
-                mIconMass, menuTitle);
-
-        mDrawerList.setAdapter(drawerMenuAdapter);
+        mNavigationView.setNavigationItemSelectedListener(mNavigationDrawerListener);
 
         imShowDrawer.setOnClickListener(showDrawerListener);
     }
@@ -96,6 +90,27 @@ public class HomeActivity extends AppCompatActivity implements OnLaunchDetailsLi
         startActivity(detailActivity);
     }
 
+
+    private NavigationView.OnNavigationItemSelectedListener mNavigationDrawerListener = new NavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+            if (menuItem.isChecked()) menuItem.setChecked(false);
+            else menuItem.setChecked(true);
+
+            mDrawerLayout.closeDrawers();
+
+            switch (menuItem.getItemId()) {
+                case R.id.menu_all_orders:
+                    return true;
+                case R.id.menu_map:
+                    return true;
+                default:
+                    return true;
+            }
+        }
+    };
 
     private View.OnClickListener showDrawerListener = new View.OnClickListener() {
         @Override

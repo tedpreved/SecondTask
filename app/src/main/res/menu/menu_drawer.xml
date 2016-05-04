@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group_navigation"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_all_orders"
+            android:checkable="false"
+            android:icon="@drawable/ic_issues"
+            android:title="@string/menu_all_treatment" />
+
+        <item
+            android:id="@+id/menu_map"
+            android:checkable="false"
+            android:icon="@drawable/ic_map"
+            android:title="@string/menu_map" />
+
+    </group>
+    <group
+        android:id="@+id/group_logout"
+        android:checkableBehavior="single">
+        <item
+            app:showAsAction="never"
+            android:id="@+id/menu_logout"
+            android:checkable="false"
+            android:title="@string/menu_login_text" />
+    </group>
+
+
+</menu>
