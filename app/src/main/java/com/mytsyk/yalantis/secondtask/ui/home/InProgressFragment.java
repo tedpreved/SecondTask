@@ -22,7 +22,7 @@ public class InProgressFragment extends Fragment {
 
     private OnLaunchDetailsListener mLaunchDetailListener;
 
-    private ArrayList<ItemTestData> mDataInProgress; // TODO Use abstraction instead of realization
+    private ArrayList<ItemTestData> mDataInProgress; //Use abstraction instead of realization
 
     public static InProgressFragment newInstance() {
         InProgressFragment inProgressFragment = new InProgressFragment();
@@ -51,7 +51,6 @@ public class InProgressFragment extends Fragment {
         InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
-        //mFab = (CustomFloatingActionButton) getActivity().findViewById(R.id.activity_home_fab); //[Comment] You don't need this object in fragment
         mRvInProgress.addOnScrollListener(onScrollListener);
 
         return view;
