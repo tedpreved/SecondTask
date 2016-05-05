@@ -51,7 +51,7 @@ public class NotDoneFragment extends Fragment {
         initData();
         mLvNotDone = (ListView) view.findViewById(R.id.fragment_not_done_lv_not_done);
         NotDoneListViewAdapter notDoneListViewAdapter = new NotDoneListViewAdapter(getActivity(),
-                (ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
+                mDataInProgress, mLaunchDetailListener);
         mLvNotDone.setAdapter(notDoneListViewAdapter);
         return view;
     }

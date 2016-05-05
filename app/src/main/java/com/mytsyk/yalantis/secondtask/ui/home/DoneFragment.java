@@ -52,7 +52,7 @@ public class DoneFragment extends Fragment {
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         InProgressAndDoneAdapter inProgressAndDoneAdapter =
-                new InProgressAndDoneAdapter((ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
+                new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mRvInProgress.addOnScrollListener(onScrollListener);

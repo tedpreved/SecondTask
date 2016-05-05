@@ -11,14 +11,14 @@ import android.widget.TextView;
 import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class InProgressAndDoneAdapter extends RecyclerView.Adapter<InProgressAndDoneAdapter.ViewHolder> {
 
     private OnLaunchDetailsListener onLaunchDetailsListener;
-    private ArrayList<ItemTestData> mDataInProgress;
+    private List<ItemTestData> mDataInProgress;
 
-    public InProgressAndDoneAdapter(ArrayList<ItemTestData> data, OnLaunchDetailsListener listener) {
+    public InProgressAndDoneAdapter(List<ItemTestData> data, OnLaunchDetailsListener listener) {
         mDataInProgress = data;
         onLaunchDetailsListener = listener;
     }

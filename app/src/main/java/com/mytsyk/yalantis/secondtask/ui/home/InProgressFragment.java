@@ -43,13 +43,15 @@ public class InProgressFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
         initData();
         mRvInProgress = (RecyclerView) view.findViewById(R.id.rv_in_progress);
         mRvInProgress.setHasFixedSize(true);
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter((ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
+        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress,
+                mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mRvInProgress.addOnScrollListener(onScrollListener);

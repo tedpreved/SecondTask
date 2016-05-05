@@ -12,14 +12,14 @@ import android.widget.TextView;
 import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class NotDoneListViewAdapter extends BaseAdapter {
     private Context mContext;
     private OnLaunchDetailsListener mLaunchDetailListener;
-    private ArrayList<ItemTestData> mDataInProgress;
+    private List<ItemTestData> mDataInProgress;
 
-    public NotDoneListViewAdapter(Context mContext, ArrayList<ItemTestData> data,
+    public NotDoneListViewAdapter(Context mContext, List<ItemTestData> data,
                                   OnLaunchDetailsListener onLaunchDetailsListener) {
         this.mContext = mContext;
         this.mDataInProgress = data;
