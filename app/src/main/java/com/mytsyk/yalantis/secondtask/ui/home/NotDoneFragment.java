@@ -16,12 +16,13 @@ import com.mytsyk.yalantis.secondtask.ui.home.fab.CustomFloatingActionButton;
 import com.mytsyk.yalantis.secondtask.ui.home.fab.ScrollDirectionListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class NotDoneFragment extends Fragment {
     private ListView mLvNotDone;
     private CustomFloatingActionButton mFloatingActionButton;
-    private ArrayList<ItemTestData> mDataInProgress;
+    private List<ItemTestData> mDataInProgress;
 
     private OnLaunchDetailsListener mLaunchDetailListener;
 
@@ -50,7 +51,7 @@ public class NotDoneFragment extends Fragment {
         initData();
         mLvNotDone = (ListView) view.findViewById(R.id.fragment_not_done_lv_not_done);
         NotDoneListViewAdapter notDoneListViewAdapter = new NotDoneListViewAdapter(getActivity(),
-                mDataInProgress, mLaunchDetailListener);
+                (ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
         mLvNotDone.setAdapter(notDoneListViewAdapter);
         return view;
     }

@@ -14,6 +14,7 @@ import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class InProgressFragment extends Fragment {
@@ -22,7 +23,7 @@ public class InProgressFragment extends Fragment {
 
     private OnLaunchDetailsListener mLaunchDetailListener;
 
-    private ArrayList<ItemTestData> mDataInProgress; //Use abstraction instead of realization
+    private List<ItemTestData> mDataInProgress;
 
     public static InProgressFragment newInstance() {
         InProgressFragment inProgressFragment = new InProgressFragment();
@@ -48,7 +49,7 @@ public class InProgressFragment extends Fragment {
         mRvInProgress = (RecyclerView) view.findViewById(R.id.rv_in_progress);
         mRvInProgress.setHasFixedSize(true);
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
+        InProgressAndDoneAdapter inProgressAndDoneAdapter = new InProgressAndDoneAdapter((ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mRvInProgress.addOnScrollListener(onScrollListener);

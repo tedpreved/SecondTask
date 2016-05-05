@@ -14,6 +14,7 @@ import com.mytsyk.yalantis.secondtask.R;
 import com.mytsyk.yalantis.secondtask.model.ItemTestData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DoneFragment extends Fragment {
@@ -21,7 +22,7 @@ public class DoneFragment extends Fragment {
     private FabChangeVisibilityListener mFabChangeVisibilityListener;
 
     private OnLaunchDetailsListener mLaunchDetailListener;
-    private ArrayList<ItemTestData> mDataInProgress;
+    private List<ItemTestData> mDataInProgress;
 
     public static DoneFragment newInstance() {
         DoneFragment doneFragment = new DoneFragment();
@@ -51,7 +52,7 @@ public class DoneFragment extends Fragment {
         mRvInProgress.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         InProgressAndDoneAdapter inProgressAndDoneAdapter =
-                new InProgressAndDoneAdapter(mDataInProgress, mLaunchDetailListener);
+                new InProgressAndDoneAdapter((ArrayList<ItemTestData>) mDataInProgress, mLaunchDetailListener);
         mRvInProgress.setAdapter(inProgressAndDoneAdapter);
 
         mRvInProgress.addOnScrollListener(onScrollListener);
